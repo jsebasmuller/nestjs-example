@@ -4,7 +4,6 @@ import { ProductService } from '../product.service';
 import { Product } from '../schemas/product.schema';
 import { getModelToken } from '@nestjs/mongoose';
 import { ProductModule } from '../product.module';
-import { HttpStatus } from '@nestjs/common';
 import { CreateProductDTO } from '../dto/product.dto';
 
 describe('ProductController', () => {

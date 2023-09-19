@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -6,7 +7,11 @@ import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://jsmuller3:jkGLl9gt16PgNdns@cluster0.wmof0ns.mongodb.net/test'), 
+    ConfigModule.forRoot({
+      envFilePath: !process.env.NODE_ENV ? '.env' : `.${process.env.NODE_ENV}.env`,
+      isGlobal: true
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URI), 
     ProductModule
   ],
   controllers: [AppController],
