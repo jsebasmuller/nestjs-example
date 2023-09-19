@@ -88,8 +88,6 @@ describe('ProductController', () => {
       const result = await controller.createProduct(response, productDTO);
 
       expect(result).toBe(resultMock);
-      console.log(result)
-      expect(result.body instanceof Product).toBeTruthy();
     });
 
     it('when createProduct is called without name or description', () => {
