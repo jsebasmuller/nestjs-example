@@ -1,8 +1,6 @@
 import { IsBase64, IsNotEmpty } from "class-validator";
 
 export class CreateProductDTO {
-    id: string;
-
     @IsNotEmpty()
     name: string;
 
